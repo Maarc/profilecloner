@@ -288,6 +288,8 @@ public class GenericCloner implements Cloner {
             return getObject(node);
         } else if (isList(node)) {
             return getList(node);
+        } else if (isProperty(node)) {
+            return "PROPERTY";
         } else {
             throw new IllegalArgumentException("Unknown type: " + node.getType());
         }
@@ -332,7 +334,7 @@ public class GenericCloner implements Cloner {
      * @return
      */
     private String escape(ModelNode value) {
-        return "\"" + value.asString().replaceAll("=", "\\=").replaceAll("\"", "\\") + "\"";
+        return "\"" + value.asString().replaceAll("=", "\\=").replaceAll("\"", "\\\"") + "\"";
     }
 
     // for ease of use all loops add commas so cut it off when done
