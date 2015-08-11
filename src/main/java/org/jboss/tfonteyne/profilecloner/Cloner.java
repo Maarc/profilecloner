@@ -30,5 +30,5 @@ import org.jboss.as.cli.CommandLineException;
  * @author Tom Fonteyne
  */
 public interface Cloner {
-    public List<String> copy() throws IOException, CommandLineException;
+	public List<String> copy() throws IOException, CommandLineException;
 }
